@@ -18,6 +18,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
     private boolean isEditMode = false;
 
     public interface OnContactClickListener {
+        void onCallClick(Contact contact);
         void onEditClick(Contact contact);
         void onDeleteClick(Contact contact);
     }
@@ -45,9 +46,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
         holder.tvName.setText(contact.getName());
         holder.tvPhone.setText(contact.getPhoneNumber());
 
-        int visibility = isEditMode ? View.VISIBLE : View.GONE;
-        holder.btnEdit.setVisibility(visibility);
-        holder.btnDelete.setVisibility(visibility);
+        // Call button is always visible
+        holder.btnCall.setOnClickListener(v -> listener.onCallClick(contact));
+
+        // Edit/Delete buttons only visible in edit mode
+        int editModeVisibility = isEditMode ? View.VISIBLE : View.GONE;
+        holder.btnEdit.setVisibility(editModeVisibility);
+        holder.btnDelete.setVisibility(editModeVisibility);
 
         holder.btnEdit.setOnClickListener(v -> listener.onEditClick(contact));
         holder.btnDelete.setOnClickListener(v -> listener.onDeleteClick(contact));
@@ -60,12 +65,13 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ContactV
 
     public static class ContactViewHolder extends RecyclerView.ViewHolder {
         TextView tvName, tvPhone;
-        ImageButton btnEdit, btnDelete;
+        ImageButton btnCall, btnEdit, btnDelete;
 
         public ContactViewHolder(@NonNull View itemView) {
             super(itemView);
             tvName = itemView.findViewById(R.id.tv_contact_name);
             tvPhone = itemView.findViewById(R.id.tv_contact_phone);
+            btnCall = itemView.findViewById(R.id.btn_call);
             btnEdit = itemView.findViewById(R.id.btn_edit);
             btnDelete = itemView.findViewById(R.id.btn_delete);
         }

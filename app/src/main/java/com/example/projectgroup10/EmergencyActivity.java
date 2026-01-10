@@ -177,7 +177,6 @@ public class EmergencyActivity extends AppCompatActivity {
             return;
         }
 
-        // Concatenate all phone numbers separated by semicolons
         StringBuilder allNumbers = new StringBuilder();
         for (int i = 0; i < contactList.size(); i++) {
             allNumbers.append(contactList.get(i).getPhoneNumber());
@@ -187,19 +186,16 @@ public class EmergencyActivity extends AppCompatActivity {
         }
 
         try {
-            // Open the system SMS app with all recipients and the message pre-filled
             Intent intent = new Intent(Intent.ACTION_SENDTO);
             intent.setData(Uri.parse("smsto:" + allNumbers.toString()));
             intent.putExtra("sms_body", message);
-            intent.putExtra("address", allNumbers.toString()); // Backup for some SMS apps
+            intent.putExtra("address", allNumbers.toString());
             
             startActivity(intent);
             
-            Log.d(TAG, "Opening SMS app for recipients: " + allNumbers.toString());
             Toast.makeText(this, "Opening SMS app for all contacts...", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, "Failed to open SMS app", e);
-            Toast.makeText(this, "Failed to open SMS app.", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -227,6 +223,14 @@ public class EmergencyActivity extends AppCompatActivity {
         rvContacts.setLayoutManager(new LinearLayoutManager(this));
         contactList = new ArrayList<>();
         adapter = new ContactAdapter(contactList, new ContactAdapter.OnContactClickListener() {
+            @Override
+            public void onCallClick(Contact contact) {
+                // New Call Logic
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + contact.getPhoneNumber()));
+                startActivity(intent);
+            }
+
             @Override
             public void onEditClick(Contact contact) {
                 showContactDialog(contact);
