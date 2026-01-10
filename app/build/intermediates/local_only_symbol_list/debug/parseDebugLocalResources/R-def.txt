@@ -4,6 +4,7 @@ color black
 color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+id btn_call
 id btn_delete
 id btn_edit
 id btn_edit_mode
