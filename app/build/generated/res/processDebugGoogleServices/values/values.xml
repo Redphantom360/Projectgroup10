@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="default_web_client_id" translatable="false">1031760325114-rfdjp2f53dalam12mmins1qd1br2tghv.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://project-group10-4546a-default-rtdb.asia-southeast1.firebasedatabase.app</string>
     <string name="gcm_defaultSenderId" translatable="false">1031760325114</string>
     <string name="google_api_key" translatable="false">AIzaSyAtGFzcUHP6Mc-aG6J2TmudQQeWLrOjVeM</string>
     <string name="google_app_id" translatable="false">1:1031760325114:android:03c99908c31620e978dc43</string>

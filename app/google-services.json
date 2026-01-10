@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "1031760325114",
+    "firebase_url": "https://project-group10-4546a-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "project-group10-4546a",
     "storage_bucket": "project-group10-4546a.firebasestorage.app"
   },
@@ -12,7 +13,12 @@
           "package_name": "com.example.projectgroup10"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1031760325114-rfdjp2f53dalam12mmins1qd1br2tghv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyAtGFzcUHP6Mc-aG6J2TmudQQeWLrOjVeM"
@@ -20,7 +26,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031760325114-rfdjp2f53dalam12mmins1qd1br2tghv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
