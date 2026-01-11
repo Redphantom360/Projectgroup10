@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="ic_launcher_background">#009C9D</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">Projectgroup10</string>
     <string name="default_web_client_id" translatable="false">1031760325114-rfdjp2f53dalam12mmins1qd1br2tghv.apps.googleusercontent.com</string>

@@ -159,6 +159,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
             return false;
         };
-
-    // The old onBackPressed method has been removed.
 }
