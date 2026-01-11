@@ -37,6 +37,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.Projectgroup10" >
         <activity
+            android:name="com.example.projectgroup10.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.projectgroup10.SignupActivity"
             android:exported="false" />
         <activity

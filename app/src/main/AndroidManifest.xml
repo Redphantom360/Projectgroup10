@@ -17,10 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Projectgroup10">
         <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name="com.example.projectgroup10.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -11,6 +11,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -24,16 +27,20 @@ public class SignupActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        EditText etUsername = findViewById(R.id.et_username);
         EditText etEmail = findViewById(R.id.et_email);
         EditText etPassword = findViewById(R.id.et_password);
+        EditText etConfirmPassword = findViewById(R.id.et_confirm_password);
         Button btnSignup = findViewById(R.id.btn_signup);
         TextView tvGoToLogin = findViewById(R.id.tv_go_to_login);
 
         btnSignup.setOnClickListener(v -> {
+            String username = etUsername.getText().toString().trim();
             String email = etEmail.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
+            String confirmPassword = etConfirmPassword.getText().toString().trim();
 
-            if (email.isEmpty() || password.isEmpty()) {
+            if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -43,9 +50,18 @@ public class SignupActivity extends AppCompatActivity {
                 return;
             }
 
+            if (!password.equals(confirmPassword)) {
+                Toast.makeText(SignupActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, task -> {
                         if (task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            if (user != null) {
+                                saveUsername(user.getUid(), username);
+                            }
                             Toast.makeText(this, "Signup Successful", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(SignupActivity.this, MainActivity.class));
                             finish();
@@ -63,5 +79,12 @@ public class SignupActivity extends AppCompatActivity {
         tvGoToLogin.setOnClickListener(v -> {
             startActivity(new Intent(SignupActivity.this, LoginActivity.class));
         });
+    }
+
+    private void saveUsername(String userId, String username) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users");
+        databaseReference.child(userId).child("username").setValue(username)
+                .addOnSuccessListener(aVoid -> Log.d(TAG, "Username saved successfully."))
+                .addOnFailureListener(e -> Log.e(TAG, "Failed to save username", e));
     }
 }
