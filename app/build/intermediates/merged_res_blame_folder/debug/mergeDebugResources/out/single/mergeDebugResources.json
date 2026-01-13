@@ -1,15 +1,11 @@
 [
     {
-        "merged": "com.example.projectgroup10.app-debug-49:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "com.example.projectgroup10.app-main-51:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\xml\\data_extraction_rules.xml"
     },
     {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\mipmap-xxxhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\xml\\data_extraction_rules.xml"
     },
     {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\mipmap-hdpi_ic_launcher.webp.flat",
@@ -32,10 +28,6 @@
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\mipmap-xxhdpi\\ic_launcher_foreground.webp"
     },
     {
-        "merged": "com.example.projectgroup10.app-debug-49:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "com.example.projectgroup10.app-main-51:/mipmap-xhdpi/ic_launcher.webp"
-    },
-    {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\mipmap-hdpi_ic_launcher_foreground.webp.flat",
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\mipmap-hdpi\\ic_launcher_foreground.webp"
     },
@@ -48,24 +40,12 @@
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\mipmap-xxxhdpi\\ic_launcher_foreground.webp"
     },
     {
-        "merged": "com.example.projectgroup10.app-debug-49:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "com.example.projectgroup10.app-main-51:/mipmap-anydpi-v26/ic_launcher.xml"
-    },
-    {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\drawable_my_login_background.png.flat",
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\drawable\\my_login_background.png"
     },
     {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "com.example.projectgroup10.app-debug-49:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "com.example.projectgroup10.app-main-51:/mipmap-mdpi/ic_launcher.webp"
-    },
-    {
-        "merged": "com.example.projectgroup10.app-debug-49:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.projectgroup10.app-main-51:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\layout_item_contact.xml.flat",
@@ -78,10 +58,6 @@
     {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\mipmap-mdpi\\ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.example.projectgroup10.app-debug-49:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "com.example.projectgroup10.app-main-51:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
@@ -104,14 +80,6 @@
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\layout\\activity_signup.xml"
     },
     {
-        "merged": "com.example.projectgroup10.app-debug-49:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.projectgroup10.app-main-51:/mipmap-hdpi/ic_launcher_round.webp"
-    },
-    {
-        "merged": "com.example.projectgroup10.app-debug-49:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.projectgroup10.app-main-51:/mipmap-xxhdpi/ic_launcher_round.webp"
-    },
-    {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\mipmap-xhdpi\\ic_launcher.webp"
     },
@@ -124,16 +92,8 @@
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\layout\\dialog_contact.xml"
     },
     {
-        "merged": "com.example.projectgroup10.app-debug-49:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "com.example.projectgroup10.app-main-51:/mipmap-anydpi-v26/ic_launcher_round.xml"
-    },
-    {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\drawable_chansump.jpg.flat",
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\drawable\\chansump.jpg"
-    },
-    {
-        "merged": "com.example.projectgroup10.app-debug-49:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.projectgroup10.app-main-51:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\menu_nav_drawer_menu.xml.flat",
@@ -148,8 +108,8 @@
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\mipmap-mdpi\\ic_launcher_foreground.webp"
     },
     {
-        "merged": "com.example.projectgroup10.app-debug-49:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.projectgroup10.app-main-51:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "com.example.projectgroup10.app-debug-49:/layout_activity_emergency.xml.flat",
+        "source": "com.example.projectgroup10.app-main-51:/layout/activity_emergency.xml"
     },
     {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\drawable_ic_launcher_foreground.xml.flat",
@@ -158,10 +118,6 @@
     {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\mipmap-xhdpi_ic_launcher_foreground.webp.flat",
         "source": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-main-51:\\mipmap-xhdpi\\ic_launcher_foreground.webp"
-    },
-    {
-        "merged": "com.example.projectgroup10.app-debug-49:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "com.example.projectgroup10.app-main-51:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\faris\\.gradle\\daemon\\8.13\\com.example.projectgroup10.app-debug-49:\\layout_item_event_card.xml.flat",

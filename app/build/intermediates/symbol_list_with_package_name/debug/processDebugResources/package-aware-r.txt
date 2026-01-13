@@ -3828,6 +3828,7 @@ id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
 id btn_call
+id btn_call_pku
 id btn_delete
 id btn_edit
 id btn_edit_mode
@@ -3842,6 +3843,7 @@ id buttonPanel
 id cache_measures
 id callMeasure
 id cancel_button
+id card_call_pku
 id card_emergency
 id card_lost_found
 id card_news
@@ -4008,7 +4010,6 @@ id linear
 id listMode
 id list_item
 id m3_side_sheet
-id main
 id marquee
 id masked
 id match_constraint
@@ -4256,6 +4257,7 @@ id title
 id titleDividerNoCustom
 id title_template
 id toggle
+id toolbar
 id top
 id topPanel
 id top_center
@@ -4275,7 +4277,6 @@ id tv_contact_name
 id tv_contact_phone
 id tv_contacts_title
 id tv_dialog_title
-id tv_emergency_title
 id tv_event_location
 id tv_event_title
 id tv_forgot_password

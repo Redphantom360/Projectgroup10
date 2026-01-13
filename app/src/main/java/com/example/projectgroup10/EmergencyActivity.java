@@ -9,20 +9,18 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -60,21 +58,30 @@ public class EmergencyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_emergency);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        View cardCallPku = findViewById(R.id.card_call_pku);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle("Safety & Emergency");
+        }
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
         databaseReference = FirebaseDatabase.getInstance("https://project-group10-4546a-default-rtdb.asia-southeast1.firebasedatabase.app")
                 .getReference("emergency_contacts");
-        
+
         databaseReference.keepSynced(true);
+
+        cardCallPku.setOnClickListener(v -> {
+            String phoneNumber = "0389216666";
+            Intent dialIntent = new Intent(Intent.ACTION_DIAL);
+            dialIntent.setData(Uri.parse("tel:" + phoneNumber));
+            startActivity(dialIntent);
+        });
 
         setupSosButton();
         setupEditButton();
@@ -83,6 +90,14 @@ public class EmergencyActivity extends AppCompatActivity {
         loadContacts();
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // Go back to the previous activity
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
     private void setupSosButton() {
         Button btnSos = findViewById(R.id.btn_sos);
 
@@ -162,7 +177,7 @@ public class EmergencyActivity extends AppCompatActivity {
                     message += "\n(Location unavailable)";
                     Log.w(TAG, "Location is null even with getCurrentLocation");
                 }
-                
+
                 sendSmsToContacts(message);
             })
             .addOnFailureListener(e -> {
@@ -190,9 +205,9 @@ public class EmergencyActivity extends AppCompatActivity {
             intent.setData(Uri.parse("smsto:" + allNumbers.toString()));
             intent.putExtra("sms_body", message);
             intent.putExtra("address", allNumbers.toString());
-            
+
             startActivity(intent);
-            
+
             Toast.makeText(this, "Opening SMS app for all contacts...", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, "Failed to open SMS app", e);
@@ -225,7 +240,6 @@ public class EmergencyActivity extends AppCompatActivity {
         adapter = new ContactAdapter(contactList, new ContactAdapter.OnContactClickListener() {
             @Override
             public void onCallClick(Contact contact) {
-                // New Call Logic
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:" + contact.getPhoneNumber()));
                 startActivity(intent);

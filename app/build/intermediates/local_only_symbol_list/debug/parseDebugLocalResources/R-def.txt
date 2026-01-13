@@ -10,6 +10,7 @@ drawable my_login_background
 drawable rounded_top_corners
 id bottom_nav_view
 id btn_call
+id btn_call_pku
 id btn_delete
 id btn_edit
 id btn_edit_mode
@@ -20,6 +21,7 @@ id btn_open_drawer
 id btn_save_username
 id btn_signup
 id btn_sos
+id card_call_pku
 id card_emergency
 id card_lost_found
 id card_news
@@ -36,7 +38,6 @@ id et_username
 id fab_add_contact
 id iv_event_image
 id iv_header
-id main
 id nav_about
 id nav_account
 id nav_events
@@ -54,11 +55,11 @@ id til_email
 id til_password
 id til_profile_username
 id til_username
+id toolbar
 id tv_contact_name
 id tv_contact_phone
 id tv_contacts_title
 id tv_dialog_title
-id tv_emergency_title
 id tv_event_location
 id tv_event_title
 id tv_forgot_password
