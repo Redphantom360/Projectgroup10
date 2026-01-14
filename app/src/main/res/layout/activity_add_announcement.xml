@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    tools:context=".AddAnnouncementActivity">
+
+    <!-- Title Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Title Input with Grey Box Background -->
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/grey_box_background"
+        android:padding="12dp"
+        android:hint="Enter Title"
+        android:textColor="@android:color/black"
+        android:textColorHint="#808080"
+        android:inputType="textCapWords" />
+
+    <!-- Category Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Category"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- Category Input with Grey Box Background -->
+    <EditText
+        android:id="@+id/etCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/grey_box_background"
+        android:padding="12dp"
+        android:hint="Enter Category"
+        android:textColor="@android:color/black"
+        android:textColorHint="#808080"
+        android:inputType="text" />
+
+    <!-- Content Label -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Content"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <!-- === FIX IS HERE === -->
+    <!-- Content Input with Grey Box Background -->
+    <EditText
+        android:id="@+id/etContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/grey_box_background"
+        android:padding="12dp"
+        android:hint="Enter Content"
+        android:gravity="top"
+        android:minLines="5"
+        android:textColor="@android:color/black"
+        android:textColorHint="#808080"
+        android:inputType="textMultiLine" />
+    <!-- === END OF FIX === -->
+
+
+    <!-- Save/Update Button -->
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:padding="12dp"
+        android:text="Save Announcement" />
+
+</LinearLayout>
