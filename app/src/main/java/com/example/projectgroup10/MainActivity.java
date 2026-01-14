@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         MaterialCardView cardEmergency = findViewById(R.id.card_emergency);
 
         cardNews.setOnClickListener(v -> Toast.makeText(this, "News clicked", Toast.LENGTH_SHORT).show());
-        cardStepCounter.setOnClickListener(v -> Toast.makeText(this, "Step Counter clicked", Toast.LENGTH_SHORT).show());
+        cardStepCounter.setOnClickListener(v -> startActivity(new Intent(this, StepTrackerActivity.class)));
         cardLostFound.setOnClickListener(v -> Toast.makeText(this, "Lost & Found clicked", Toast.LENGTH_SHORT).show());
         cardEmergency.setOnClickListener(v -> startActivity(new Intent(this, EmergencyActivity.class)));
     }
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (itemId == R.id.nav_news) {
             Toast.makeText(this, "News & Announcement clicked", Toast.LENGTH_SHORT).show();
         } else if (itemId == R.id.nav_step_counter) {
-            Toast.makeText(this, "Step Counter clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, StepTrackerActivity.class));
         } else if (itemId == R.id.nav_lost_found) {
             Toast.makeText(this, "Lost and Found clicked", Toast.LENGTH_SHORT).show();
         } else if (itemId == R.id.nav_safety_emergency) {

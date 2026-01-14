@@ -7,6 +7,7 @@ import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -29,6 +30,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.Priority;
 import com.google.android.gms.tasks.CancellationTokenSource;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,7 +51,7 @@ public class EmergencyActivity extends AppCompatActivity {
     private boolean isSosTriggered = false;
     private boolean isEditMode = false;
 
-    private DatabaseReference databaseReference;
+    private DatabaseReference userContactsRef;
     private RecyclerView rvContacts;
     private ContactAdapter adapter;
     private List<Contact> contactList;
@@ -71,10 +74,18 @@ public class EmergencyActivity extends AppCompatActivity {
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
-        databaseReference = FirebaseDatabase.getInstance("https://project-group10-4546a-default-rtdb.asia-southeast1.firebasedatabase.app")
-                .getReference("emergency_contacts");
-
-        databaseReference.keepSynced(true);
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            userContactsRef = FirebaseDatabase.getInstance("https://project-group10-4546a-default-rtdb.asia-southeast1.firebasedatabase.app")
+                    .getReference("emergency_contacts").child(userId);
+            userContactsRef.keepSynced(true);
+            loadContacts();
+        } else {
+            Toast.makeText(this, "You must be logged in to manage contacts", Toast.LENGTH_LONG).show();
+            finish(); // Or redirect to login
+            return;
+        }
 
         cardCallPku.setOnClickListener(v -> {
             String phoneNumber = "0389216666";
@@ -87,7 +98,6 @@ public class EmergencyActivity extends AppCompatActivity {
         setupEditButton();
         setupRecyclerView();
         setupFab();
-        loadContacts();
     }
 
     @Override
@@ -98,6 +108,7 @@ public class EmergencyActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     private void setupSosButton() {
         Button btnSos = findViewById(R.id.btn_sos);
 
@@ -167,7 +178,7 @@ public class EmergencyActivity extends AppCompatActivity {
         CancellationTokenSource cts = new CancellationTokenSource();
         fusedLocationClient.getCurrentLocation(Priority.PRIORITY_HIGH_ACCURACY, cts.getToken())
             .addOnSuccessListener(this, location -> {
-                String message = "🚨 EMERGENCY SOS! I need help!";
+                String message = "!!!EMERGENCY SOS! I need help!!!";
                 if (location != null) {
                     double latitude = location.getLatitude();
                     double longitude = location.getLongitude();
@@ -182,7 +193,7 @@ public class EmergencyActivity extends AppCompatActivity {
             })
             .addOnFailureListener(e -> {
                 Log.e(TAG, "Location fetch failed", e);
-                sendSmsToContacts("🚨 EMERGENCY SOS! I need help!\n(Location fetch failed)");
+                sendSmsToContacts("!!!!!!EMERGENCY SOS!!!!!! I need help!\n(Location fetch failed)");
             });
     }
 
@@ -196,7 +207,7 @@ public class EmergencyActivity extends AppCompatActivity {
         for (int i = 0; i < contactList.size(); i++) {
             allNumbers.append(contactList.get(i).getPhoneNumber());
             if (i < contactList.size() - 1) {
-                allNumbers.append(";");
+                allNumbers.append(","); // Use comma as a separator
             }
         }
 
@@ -204,13 +215,11 @@ public class EmergencyActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_SENDTO);
             intent.setData(Uri.parse("smsto:" + allNumbers.toString()));
             intent.putExtra("sms_body", message);
-            intent.putExtra("address", allNumbers.toString());
-
             startActivity(intent);
-
-            Toast.makeText(this, "Opening SMS app for all contacts...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Opening messaging app...", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             Log.e(TAG, "Failed to open SMS app", e);
+            Toast.makeText(this, "Could not open messaging app.", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -264,7 +273,7 @@ public class EmergencyActivity extends AppCompatActivity {
     }
 
     private void loadContacts() {
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        userContactsRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 contactList.clear();
@@ -303,7 +312,7 @@ public class EmergencyActivity extends AppCompatActivity {
 
         builder.setPositiveButton(contact == null ? "Add" : "Update", (dialog, which) -> {
             String name = etName.getText().toString().trim();
-            String phone = etPhone.getText().toString().trim();
+            String phone = etName.getText().toString().trim();
 
             if (!name.isEmpty() && !phone.isEmpty()) {
                 if (contact == null) {
@@ -321,22 +330,22 @@ public class EmergencyActivity extends AppCompatActivity {
     }
 
     private void addContact(String name, String phone) {
-        String id = databaseReference.push().getKey();
+        String id = userContactsRef.push().getKey();
         Contact contact = new Contact(id, name, phone);
         if (id != null) {
-            databaseReference.child(id).setValue(contact)
+            userContactsRef.child(id).setValue(contact)
                     .addOnSuccessListener(aVoid -> Toast.makeText(this, "Contact added", Toast.LENGTH_SHORT).show());
         }
     }
 
     private void updateContact(String id, String name, String phone) {
         Contact contact = new Contact(id, name, phone);
-        databaseReference.child(id).setValue(contact)
+        userContactsRef.child(id).setValue(contact)
                 .addOnSuccessListener(aVoid -> Toast.makeText(this, "Contact updated", Toast.LENGTH_SHORT).show());
     }
 
     private void deleteContact(Contact contact) {
-        databaseReference.child(contact.getId()).removeValue()
+        userContactsRef.child(contact.getId()).removeValue()
                 .addOnSuccessListener(aVoid -> Toast.makeText(this, "Contact deleted", Toast.LENGTH_SHORT).show());
     }
 }

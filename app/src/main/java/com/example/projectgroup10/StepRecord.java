@@ -1,32 +1,34 @@
 package com.example.projectgroup10;
 
 public class StepRecord {
+    private String date;
+    private int steps;
+    private float distance;
+    private float co2Saved;
 
-    public String id;       // Unique key for Firebase
-    public String date;
-    public int steps;
-    public float distance;
-    public float co2;
+    // Required for Firebase
+    public StepRecord() {}
 
-    // Required empty constructor for Firebase
-    public StepRecord() {
-    }
-
-    // Full constructor
-    public StepRecord(String id, String date, int steps, float distance, float co2) {
-        this.id = id;
+    public StepRecord(String date, int steps, float distance, float co2Saved) {
         this.date = date;
         this.steps = steps;
         this.distance = distance;
-        this.co2 = co2;
+        this.co2Saved = co2Saved;
     }
 
-    // Convenience constructor: use date as id automatically
-    public StepRecord(String date, int steps, float distance, float co2) {
-        this.id = date;  // use date as unique id
-        this.date = date;
-        this.steps = steps;
-        this.distance = distance;
-        this.co2 = co2;
+    public String getDate() {
+        return date;
+    }
+
+    public int getSteps() {
+        return steps;
+    }
+
+    public float getDistance() {
+        return distance;
+    }
+
+    public float getCo2Saved() {
+        return co2Saved;
     }
 }

@@ -3809,6 +3809,7 @@ id autoHide
 id autoLimit
 id availableSpace
 id axisRelative
+id badgeText
 id barrier
 id baseline
 id beginOnFirstDraw
@@ -3866,6 +3867,7 @@ id clip_horizontal
 id clip_vertical
 id clockwise
 id closest
+id co2Text
 id collapseActionView
 id compress
 id confirm_button
@@ -3884,11 +3886,13 @@ id custom
 id customPanel
 id cut
 id dark
+id dateText
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id deleteBtn
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -3904,6 +3908,7 @@ id disableIntraAutoTransition
 id disablePostScroll
 id disableScroll
 id disjoint
+id distanceText
 id dragAnticlockwise
 id dragClockwise
 id dragDown
@@ -3918,7 +3923,10 @@ id easeIn
 id easeInOut
 id easeOut
 id east
+id ecoText
 id edge
+id editBtn
+id editSteps
 id edit_query
 id edit_text_id
 id elastic
@@ -3974,6 +3982,7 @@ id header_title
 id hidden
 id hide_ime_id
 id hideable
+id historyBtn
 id home
 id homeAsUp
 id honorRequest
@@ -4142,7 +4151,9 @@ id progress_horizontal
 id radio
 id ratio
 id rectangles
+id recyclerViewSteps
 id report_drawn
+id resetBtn
 id retreat
 id reverseSawtooth
 id right
@@ -4153,6 +4164,7 @@ id rounded
 id row_index_key
 id rv_contacts
 id rv_upcoming_events
+id saveBtn
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -4176,6 +4188,7 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
+id shareBtn
 id sharedValueSet
 id sharedValueUnset
 id shortcut
@@ -4204,12 +4217,15 @@ id src_in
 id src_over
 id standard
 id start
+id startBtn
 id startHorizontal
 id startToEnd
 id startVertical
 id start_center
 id staticLayout
 id staticPostLayout
+id stepProgress
+id stepText
 id stop
 id stretch
 id submenuarrow
@@ -4431,11 +4447,14 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_edit_step
 layout activity_emergency
 layout activity_login
 layout activity_main
 layout activity_profile
 layout activity_signup
+layout activity_step_history
+layout activity_step_tracker
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout custom_dialog
@@ -4460,6 +4479,7 @@ layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_contact
 layout item_event_card
+layout item_step_history
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
@@ -5447,6 +5467,7 @@ style Theme_MaterialComponents_Light_NoActionBar
 style Theme_MaterialComponents_Light_NoActionBar_Bridge
 style Theme_MaterialComponents_NoActionBar
 style Theme_MaterialComponents_NoActionBar_Bridge
+style Theme_PlayCore_Transparent
 style Theme_Projectgroup10
 style ThemeOverlay_AppCompat
 style ThemeOverlay_AppCompat_ActionBar

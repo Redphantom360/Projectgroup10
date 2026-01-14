@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -22,13 +21,12 @@ public class StepHistoryAdapter extends RecyclerView.Adapter<StepHistoryAdapter.
 
     private List<StepRecord> recordList;
     private Context context;
-    private DatabaseReference databaseReference;
+    private DatabaseReference userStepHistoryRef;
 
-    public StepHistoryAdapter(Context context, List<StepRecord> recordList) {
+    public StepHistoryAdapter(Context context, List<StepRecord> recordList, DatabaseReference userStepHistoryRef) {
         this.context = context;
         this.recordList = recordList;
-        databaseReference = FirebaseDatabase.getInstance()
-                .getReference("stepHistory");
+        this.userStepHistoryRef = userStepHistoryRef;
     }
 
     @NonNull
@@ -43,16 +41,16 @@ public class StepHistoryAdapter extends RecyclerView.Adapter<StepHistoryAdapter.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         StepRecord record = recordList.get(position);
 
-        holder.dateText.setText(record.date);
-        holder.stepText.setText("Steps: " + record.steps);
-        holder.distanceText.setText(String.format("Distance: %.2f m", record.distance));
-        holder.co2Text.setText(String.format("CO₂ Saved: %.2f kg", record.co2));
+        holder.dateText.setText(record.getDate());
+        holder.stepText.setText("Steps: " + record.getSteps());
+        holder.distanceText.setText(String.format("Distance: %.2f m", record.getDistance()));
+        holder.co2Text.setText(String.format("CO₂ Saved: %.2f kg", record.getCo2Saved()));
 
         // 🔹 EDIT BUTTON
         holder.editBtn.setOnClickListener(v -> {
             Intent intent = new Intent(context, EditStepActivity.class);
-            intent.putExtra("id", record.date); // Using date as unique key
-            intent.putExtra("steps", record.steps);
+            intent.putExtra("id", record.getDate()); // Using date as unique key
+            intent.putExtra("steps", record.getSteps());
             context.startActivity(intent);
         });
 
@@ -62,7 +60,7 @@ public class StepHistoryAdapter extends RecyclerView.Adapter<StepHistoryAdapter.
                     .setTitle("Delete Record")
                     .setMessage("Are you sure you want to delete this record?")
                     .setPositiveButton("Delete", (dialog, which) -> {
-                        databaseReference.child(record.date).removeValue();
+                        userStepHistoryRef.child(record.getDate()).removeValue();
                         Toast.makeText(context, "Record deleted", Toast.LENGTH_SHORT).show();
                     })
                     .setNegativeButton("Cancel", null)

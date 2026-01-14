@@ -7,13 +7,18 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -39,12 +44,16 @@ public class StepTrackerActivity extends AppCompatActivity implements SensorEven
     private static final float STRIDE_LENGTH = 0.78f;
     private static final int DAILY_GOAL = 6000;
 
-    private DatabaseReference databaseReference;
+    private DatabaseReference userStepHistoryRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step_tracker);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // TextViews
         stepText = findViewById(R.id.stepText);
@@ -64,12 +73,22 @@ public class StepTrackerActivity extends AppCompatActivity implements SensorEven
         saveBtn = findViewById(R.id.saveBtn);
 
         // Firebase reference
-        databaseReference = FirebaseDatabase.getInstance()
-                .getReference("stepHistory");
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            String userId = currentUser.getUid();
+            userStepHistoryRef = FirebaseDatabase.getInstance("https://project-group10-4546a-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                    .getReference("stepHistory").child(userId);
+        } else {
+            Toast.makeText(this, "You must be logged in to save history", Toast.LENGTH_LONG).show();
+            finish(); // Or redirect to login
+            return;
+        }
 
         // Sensor setup
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        if (sensorManager != null) {
+            accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        }
 
         // Start tracking
         startBtn.setOnClickListener(v -> isTracking = true);
@@ -119,7 +138,7 @@ public class StepTrackerActivity extends AppCompatActivity implements SensorEven
                     co2Saved
             );
 
-            databaseReference.child(date).setValue(record);
+            userStepHistoryRef.child(date).setValue(record);
             Toast.makeText(this, "Steps saved successfully!", Toast.LENGTH_SHORT).show();
         });
 
@@ -127,9 +146,20 @@ public class StepTrackerActivity extends AppCompatActivity implements SensorEven
     }
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish(); // Go back to the previous activity
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
-        sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        if (accelerometer != null) {
+            sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        }
     }
 
     @Override

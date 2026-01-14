@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.projectgroup10.app-mergeDebugResources-47:/values-v21/values-v21.xml",
+            "outputFile": "com.example.projectgroup10.app-mergeDebugResources-48:/values-v21/values-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\faris\\.gradle\\caches\\8.13\\transforms\\0d3cc8a5257600c0a40d325abed48b75\\transformed\\material-1.13.0\\res\\values-v21\\values-v21.xml",
+                    "source": "C:\\Users\\faris\\.gradle\\caches\\8.13\\transforms\\3708892c80a3a1c19aa62aee218baf28\\transformed\\material-1.13.0\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,26 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\faris\\.gradle\\caches\\8.13\\transforms\\9010a2ecb71575d231e9523889ce37ed\\transformed\\credentials-play-services-auth-1.5.0\\res\\values-v21\\values-v21.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "9",
-                        "endColumns": "12",
-                        "endOffsets": "543"
-                    },
-                    "to": {
-                        "startLines": "272",
-                        "startColumns": "4",
-                        "startOffsets": "19537",
-                        "endLines": "279",
-                        "endColumns": "12",
-                        "endOffsets": "20025"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\faris\\.gradle\\caches\\8.13\\transforms\\5cc8226ea01bc9a46cd86c7a3d0b2803\\transformed\\core-1.16.0\\res\\values-v21\\values-v21.xml",
+                    "source": "C:\\Users\\faris\\.gradle\\caches\\8.13\\transforms\\2bd2e82b06dac5949e0b4a788e5da6f8\\transformed\\core-1.16.0\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,13",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -59,7 +40,26 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\faris\\.gradle\\caches\\8.13\\transforms\\9e296c67e6aa4606593bf1412ffb075f\\transformed\\appcompat-1.7.1\\res\\values-v21\\values-v21.xml",
+                    "source": "C:\\Users\\faris\\.gradle\\caches\\8.13\\transforms\\fbd00d9dec03812d8ff7fe330e610b86\\transformed\\credentials-play-services-auth-1.5.0\\res\\values-v21\\values-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "543"
+                    },
+                    "to": {
+                        "startLines": "272",
+                        "startColumns": "4",
+                        "startOffsets": "19537",
+                        "endLines": "279",
+                        "endColumns": "12",
+                        "endOffsets": "20025"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\faris\\.gradle\\caches\\8.13\\transforms\\176aaa0dcf3e9444028ee40316ec9448\\transformed\\appcompat-1.7.1\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,19,20,21,22,24,26,27,28,29,30,32,34,36,38,40,42,43,48,50,52,53,54,56,58,59,60,61,62,63,106,109,152,155,158,160,162,164,167,171,174,175,176,179,180,181,182,183,184,187,188,190,192,194,196,200,202,203,204,205,207,211,213,215,216,217,218,219,220,222,223,224,234,235,236,248",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
