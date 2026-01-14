@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#F5F7FA"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Title -->
+        <TextView
+            android:text="🚶 Step Counter"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#2C3E50"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Card Container -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="20dp"
+            android:elevation="6dp"
+            android:layout_marginBottom="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Steps Today"
+                android:textSize="16sp"
+                android:textColor="#7F8C8D"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/stepText"
+                android:text="0"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:textColor="#27AE60"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:text="Distance Walked"
+                android:textSize="16sp"
+                android:textColor="#7F8C8D"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/distanceText"
+                android:text="0.00 meters"
+                android:textSize="22sp"
+                android:textColor="#2980B9"
+                android:layout_marginBottom="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!-- Daily Goal -->
+            <TextView
+                android:text="Daily Goal: 6000 steps"
+                android:textSize="14sp"
+                android:textColor="#7F8C8D"
+                android:layout_marginBottom="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ProgressBar
+                android:id="@+id/stepProgress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:max="6000"
+                android:progress="0"
+                android:layout_marginBottom="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- Eco Impact -->
+            <TextView
+                android:id="@+id/ecoText"
+                android:text="🌱 CO₂ Saved: 0.00 kg"
+                android:textSize="16sp"
+                android:textColor="#16A085"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <!-- Achievement -->
+            <TextView
+                android:id="@+id/badgeText"
+                android:text="🏅 Achievement: Not unlocked yet"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#8E44AD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <!-- Main Buttons -->
+        <Button
+            android:id="@+id/startBtn"
+            android:text="Start Walking"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#27AE60"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/resetBtn"
+            android:text="Reset"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#E74C3C"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:text="Save Today's Steps"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#34495E"
+            android:layout_marginBottom="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Secondary Buttons -->
+        <Button
+            android:id="@+id/shareBtn"
+            android:text="Share Achievement"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#7F8C8D"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/historyBtn"
+            android:text="View Step History"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#7F8C8D"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</ScrollView>
